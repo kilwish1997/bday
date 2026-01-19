@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Belated Birthday My Love 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        /* Animated Gradient Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b9d, #c44569, #feca57, #ff9ff3);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            z-index: -3;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Twinkling Stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        
+        /* Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            bottom: -50px;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 30px;
+            animation: floatUp 8s infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Confetti Rain */
+        .confetti-container {
+            position: fixed;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: confettiFall 5s linear infinite;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0.5;
+            }
+        }
+        
+        /* Main Content Container */
+        .container {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-photo {
+            flex: 0 0 400px;
+            max-width: 400px;
+        }
+        
+        .hero-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(255, 107, 157, 0.5);
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            animation: floatPhoto 3s ease-in-out infinite;
+        }
+        
+        @keyframes floatPhoto {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-content {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                         0 0 40px rgba(255, 107, 157, 0.6),
+                         0 0 60px rgba(196, 69, 105, 0.4);
+            animation: pulseGlow 2s ease-in-out infinite;
+            cursor: pointer;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                             0 0 40px rgba(255, 107, 157, 0.6),
+                             0 0 60px rgba(196, 69, 105, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+                             0 0 60px rgba(255, 107, 157, 0.8),
+                             0 0 90px rgba(196, 69, 105, 0.6);
+            }
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .countdown {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Love Metrics Cards */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+            padding: 20px;
+        }
+        
+        .metric-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .metric-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 10px 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .metric-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Wish Cards Section */
+        .wishes-section {
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+        
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .wish-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wish-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .wish-card:hover::before {
+            opacity: 1;
+        }
+        
+        .wish-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(255, 107, 157, 0.5);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .wish-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .wish-preview {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        /* Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            color: #c44569;
+            position: relative;
+            animation: modalSlideIn 0.5s ease;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Photo Viewer Modal */
+        .photo-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .photo-modal.active {
+            display: flex;
+        }
+        
+        .photo-modal-content {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            height: 80vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            position: relative;
+            animation: modalSlideIn 0.5s ease;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .photo-modal-left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.05);
+        }
+        
+        .photo-modal-left img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+        
+        .photo-modal-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #c44569;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .photo-modal-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #c44569;
+        }
+        
+        .photo-modal-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .photo-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #c44569;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(196, 69, 105, 0.1);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .photo-modal-close:hover {
+            background: rgba(196, 69, 105, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #c44569;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(196, 69, 105, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background: rgba(196, 69, 105, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #c44569;
+        }
+        
+        .modal-message {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        /* Image Gallery */
+        .gallery {
+            padding: 60px 20px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            height: 300px;
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.5);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.2) rotate(-2deg);
+        }
+        
+        /* Video Gallery */
+        .video-gallery {
+            padding: 60px 20px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .video-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.5);
+        }
+        
+        .video-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 18px;
+        }
+        
+        .video-caption {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        
+        /* Final Message */
+        .final-message {
+            text-align: center;
+            padding: 80px 20px 120px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(196, 69, 105, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 100;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .play-button {
+            background: white;
+            color: #c44569;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        .equalizer {
+            display: flex;
+            gap: 5px;
+            align-items: flex-end;
+            height: 40px;
+        }
+        
+        .bar {
+            width: 4px;
+            background: white;
+            border-radius: 2px;
+            animation: equalize 1s ease-in-out infinite;
+        }
+        
+        .bar:nth-child(1) { animation-delay: 0s; }
+        .bar:nth-child(2) { animation-delay: 0.2s; }
+        .bar:nth-child(3) { animation-delay: 0.4s; }
+        .bar:nth-child(4) { animation-delay: 0.6s; }
+        .bar:nth-child(5) { animation-delay: 0.8s; }
+        
+        @keyframes equalize {
+            0%, 100% { height: 10px; }
+            50% { height: 40px; }
+        }
+        
+        /* Belated Messages Section */
+        .belated-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .belated-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 40px auto;
+        }
+        
+        .belated-video {
+            flex: 0 0 350px;
+        }
+        
+        .belated-video video {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .belated-messages {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .belated-message {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mouse Trail */
+        .heart-trail {
+            position: fixed;
+            pointer-events: none;
+            font-size: 20px;
+            z-index: 9999;
+            animation: trailFade 1s ease-out forwards;
+        }
+        
+        @keyframes trailFade {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) translateY(-20px);
+            }
+        }
+        
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero-photo {
+                flex: 0 0 auto;
+                max-width: 300px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .badge {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+            
+            .countdown {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .metric-number {
+                font-size: 2rem;
+            }
+            
+            .wishes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 30px;
+            }
+            
+            .modal-message {
+                font-size: 1.1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .belated-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .belated-video {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .music-player {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            /* Photo Modal Mobile */
+            .photo-modal-content {
+                flex-direction: column;
+                height: 90vh;
+                padding: 20px;
+                gap: 20px;
+            }
+            
+            .photo-modal-left {
+                flex: 0 0 50%;
+            }
+            
+            .photo-modal-right {
+                flex: 1;
+                padding: 10px;
+            }
+            
+            .photo-modal-title {
+                font-size: 1.5rem;
+            }
+            
+            .photo-modal-text {
+                font-size: 1.1rem;
+            }
+            
+            .final-message {
+                font-size: 1.8rem;
+                padding: 60px 20px 100px;
+            }
+        }
+        
+        /* Portrait and Landscape */
+        @media (orientation: portrait) {
+            .hero {
+                min-height: 100vh;
+            }
+        }
+        
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero {
+                min-height: auto;
+                padding: 40px 20px;
+            }
+        }
+        
+        /* Touch-friendly */
+        @media (hover: none) {
+            .wish-card:active {
+                transform: scale(0.95);
+            }
+            
+            .play-button:active {
+                transform: scale(0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    
+    <!-- Twinkling Stars -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <!-- Confetti Rain -->
+    <div class="confetti-container" id="confettiContainer"></div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <!-- Left Side: Photo -->
+            <div class="hero-photo">
+                <img src="images/hero-photo.jpg" alt="My Beautiful Love">
+            </div>
+            
+            <!-- Right Side: Content -->
+            <div class="hero-content">
+                <h1 class="hero-title" id="heroTitle">Happy Belated Birthday<br>My Love! 
+                    kashish💖🎉</h1>
+                <div class="badge">4 Days Late But My Love Is Timeless ❤️</div>
+                <div class="countdown" id="countdown"></div>
+            </div>
+        </div>
+        
+        <!-- Love Metrics -->
+        <div class="metrics reveal">
+            <div class="metric-card">
+                <div class="metric-label">Days I've Loved You</div>
+                <div class="metric-number"> 596+</div>
+                <div class="metric-label">💕</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Heartbeats For You</div>
+                <div class="metric-number">73M+</div>
+                <div class="metric-label">💓</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Smiles You've Given</div>
+                <div class="metric-number">Infinite</div>
+                <div class="metric-label">💕</div>
+            </div>
+        </div>
+        
+        <!-- Belated Messages -->
+        <div class="belated-section reveal">
+            <h2 class="section-title">My Heart Speaks 💝</h2>
+            
+            <div class="belated-content">
+                <!-- Left Video -->
+                <div class="belated-video">
+                    <video controls>
+                        <source src="videos/video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <!-- Center Messages -->
+                <div class="belated-messages">
+                    <div class="belated-message">
+                        I'm sorry I'm 4 days late baby, but my love grows stronger every day 🌹
+                    </div>
+                    <div class="belated-message">
+                        Better late than never - my feelings for you are eternal, jaan 💖
+                    </div>
+                    <div class="belated-message">
+                        Time means nothing when I have forever with you, dil se ❤️
+                    </div>
+                </div>
+                
+                <!-- Right Video -->
+                <div class="belated-video">
+                    <video controls>
+                        <source src="videos/video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wish Cards -->
+        <div class="wishes-section reveal">
+            <h2 class="section-title">15 Wishes From My Heart 💌</h2>
+            <div class="wishes-grid" id="wishesGrid"></div>
+        </div>
+        
+        <!-- Image Gallery -->
+        <!-- CUSTOMIZATION: Add your 12 photos to the 'images' folder and name them photo1.jpg through photo12.jpg -->
+        <div class="gallery reveal">
+            <h2 class="section-title">Moments of Love 📸</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/photo1.jpg" alt="Our Beautiful Moment 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo2.jpg" alt="Our Beautiful Moment 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo3.jpg" alt="Our Beautiful Moment 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo4.jpg" alt="Our Beautiful Moment 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo5.jpg" alt="Our Beautiful Moment 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo6.jpg" alt="Our Beautiful Moment 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo7.jpg" alt="Our Beautiful Moment 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo8.jpg" alt="Our Beautiful Moment 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo9.jpg" alt="Our Beautiful Moment 9">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo10.jpg" alt="Our Beautiful Moment 10">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo11.jpg" alt="Our Beautiful Moment 11">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo12.jpg" alt="Our Beautiful Moment 12">
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Final Message -->
+        <div class="final-message reveal">
+            You deserve everything baby 💖
+        </div>
+    </div>
+    
+    <!-- Modal Popup -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-message" id="modalMessage"></p>
+        </div>
+    </div>
+    
+    <!-- Photo Viewer Modal -->
+    <div class="photo-modal" id="photoModal">
+        <div class="photo-modal-content">
+            <span class="photo-modal-close" id="photoModalClose">&times;</span>
+            <div class="photo-modal-left">
+                <img id="photoModalImage" src="" alt="Photo">
+            </div>
+            <div class="photo-modal-right">
+                <h2 class="photo-modal-title" id="photoModalTitle">Our Beautiful Moment</h2>
+                <p class="photo-modal-text" id="photoModalText">Write your special paragraph for this photo...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Music Player -->
+    <!-- CUSTOMIZATION: Add your song file to 'audio' folder and name it 'love-song.mp3' -->
+    <audio id="audioPlayer" loop>
+        <source src="audio/love-song.mp3" type="audio/mpeg">
+        <source src="audio/love-song.ogg" type="audio/ogg">
+    </audio>
+    
+    <div class="music-player">
+        <button class="play-button" id="playButton">🎵 Play Love Song</button>
+        <div class="equalizer" id="equalizer">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <script>
+        // CUSTOMIZATION: Change these values to personalize
+        const BIRTHDAY_DATE = new Date('2026-01-15'); // Her birthday date
+        const GIRLFRIEND_NAME = 'My Love'; // Change to her name
+        const DAYS_LOVED = ' 596 days+'; // Customize this
+        
+        // CUSTOMIZATION: Photo descriptions - Write your special paragraph for each photo
+        const photoDescriptions = [
+            { title: "Our First Moment 💕", text: "This is where it all began... This is where it all began, under the soft moonlight of our stolen glances, where hearts first whispered promises in the happiest day." },
+            { title: "Beautiful Person 💖", text: "You are the beautiful only person who lit up my world, turning ordinary days into poetry with your gentle smile and warm gaze." },
+            { title: "Cutest Bevdi 🌹", text: "You are the cutest bevdi who drank with me, giggling under starry skies, turning sips of mischief into sweet forever memories." },
+            { title: "Love & Laughter 💝", text: "Love & Laughter define us, my cutest bevdi, in that selfie hug where your smile outshines the room and our hearts sync perfectly." },
+            { title: "My Favorite Person😊", text: "You are my favourite person, the one whose laughter fills every corner, just like in our cozy selfie hug with your radiant smile and my arms around you." },
+            { title: "Cutest Girl 💕", text: "you are the happiest moment ever happend in my life" },
+            { title: "Our Journey 🌟", text: "This moment marks the heart of our journey, where your hand in mine against that sunny wall began our adventure of love, laughter, and endless selfies." },
+            { title: "Happiness 💖", text: "This photo captures pure happiness—your cutest smile in that blue kurti, my arms around you, turning a simple room into our joyful forever haven." },
+            { title: "Sweet Memories 🌺", text: "Write about this beautiful day..." },
+            { title: "babydoll 💞", text: "My babydoll, in this selfie your smile outshines the sun,moon and earth , You deserve to be happy like in this presious photo" },
+            { title: "Love 💗", text: "This photo represents you deserve to be happy with me or without me. I never forgot about you your face, your smile, your lips." },
+            { title: "My Everything 💕", text: "You are my everything, the cutest girl whose gaze in this hug melts me, I'm sorry for our shared stumbles, but these feelings weave our worlds into one perfect, unbreakable us." }
+        ];
+        
+        // 15 Romantic Wishes (Mix of short and long, emotional messages)
+        const wishes = [
+            {
+                title: "Wish #1 💖",
+                preview: "Happy birthday, my love. Thank you for filling my life...",
+                full: "Happy birthday, my love. Thank you for filling my life with so much warmth, joy, and endless happiness. Every moment with you feels like a beautiful dream I never want to wake up from. You are my everything, jaan. 💕"
+            },
+            {
+                title: "Wish #2 🌹",
+                preview: "To the girl who stole my heart...",
+                full: "To the girl who stole my heart, happy birthday! You came into my life like a beautiful sunrise and painted everything with colors of love. I'm sorry I'm late, but my love for you is never late - it's always here, always growing, always yours. Forever yours, dil se. ❤️"
+            },
+            {
+                title: "Wish #3 💝",
+                preview: "To the girl I love the most...",
+                full: "To the girl I love the most, happy belated birthday! Every day with you is a celebration, but today is extra special. You make my heart skip a beat with just a smile. I may be 4 days late, but my feelings are right on time - deeply, madly, completely in love with you. 💖"
+            },
+            {
+                title: "Wish #4 🎂",
+                preview: "You deserve the world and more...",
+                full: "You deserve the world and more, my beautiful jaan. Happy birthday! I wish I could give you the moon, the stars, and everything beautiful in this universe. But all I have is my heart, and it's completely, eternally yours. 🌙✨"
+            },
+            {
+                title: "Wish #5 💕",
+                preview: "Time may have passed, but my love...",
+                full: "Time may have passed since your birthday, but my love for you is timeless. It doesn't need a calendar or a clock - it exists in every breath I take, every thought I have. Happy belated birthday, Princess. 💓"
+            },
+            {
+                title: "Wish #6 🌺",
+                preview: "You are the reason I believe in magic...",
+                full: "You are the reason I believe in magic, in destiny, in forever. Happy birthday to my soulmate! Every moment without you feels incomplete, and every moment with you feels like paradise. I love you more than words can express, dil se. 🌹"
+            },
+            {
+                title: "Wish #7 ✨",
+                preview: "I'm sorry for being late...",
+                full: "I'm sorry for being late, but baby, you know what's never late? My love for you. It arrives every second, every minute, every hour. Happy belated birthday to the girl who owns my heart completely! 💖"
+            },
+            {
+                title: "Wish #8 🎉",
+                preview: "Another year older, another year more beautiful...",
+                full: "Another year older, another year more beautiful, another year more amazing! Happy birthday, my love. You grow more precious to me with each passing day. I'm blessed to have you in my life, jaan. 💕"
+            },
+            {
+                title: "Wish #9 💗",
+                preview: "If I could turn back time...",
+                full: "If I could turn back time, I would wish you happy birthday on the exact moment you were born. But since I can't, I'm wishing you now with all my heart: Happy belated birthday to my everything! You are my today and all of my tomorrows. ❤️"
+            },
+            {
+                title: "Wish #10 🌟",
+                preview: "You light up my world...",
+                full: "You light up my world like nobody else! Happy birthday, my shining star. Your smile is my favorite sight, your laugh is my favorite sound, and your love is my favorite feeling. I'm so lucky to call you mine. 💫"
+            },
+            {
+                title: "Wish #11 💞",
+                preview: "Four days late but infinite love...",
+                full: "Four days late but infinite love! Happy belated birthday, baby. Time is just a number, but my love for you is immeasurable, unstoppable, and eternal. You are my forever, dil se. 💖"
+            },
+            {
+                title: "Wish #12 🎈",
+                preview: "To my best friend, my lover, my everything...",
+                full: "To my best friend, my lover, my everything - happy birthday! You make every day brighter, every moment sweeter, every memory more precious. I promise to love you more with each passing day, jaan. 🌹"
+            },
+            {
+                title: "Wish #13 🌸",
+                preview: "Your birthday may have passed...",
+                full: "Your birthday may have passed, but my celebration of you never ends. Every day I celebrate having you in my life. Happy belated birthday to the queen of my heart! You deserve all the happiness in the world. 👑💕"
+            },
+            {
+                title: "Wish #14 💓",
+                preview: "I fall in love with you more every day...",
+                full: "I fall in love with you more every day, and today is no exception. Happy birthday, my beautiful jaan! You are the answer to all my prayers, the fulfillment of all my dreams. I love you beyond measure, dil se. 💖"
+            },
+            {
+                title: "Wish #15 🌹",
+                preview: "Forever and always, you are my heartbeat...",
+                full: "Forever and always, you are my heartbeat, my reason to smile, my source of strength. Happy belated birthday, my love! I may be late with this wish, but I'm never late in loving you. You are my today, my tomorrow, my forever. I love you more than life itself. 💕✨"
+            }
+        ];
+        
+        // Calculate days since birthday
+        function updateCountdown() {
+            const today = new Date();
+            const timeDiff = today - BIRTHDAY_DATE;
+            const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').innerHTML = 
+                `<strong>${daysPassed}</strong> days since your special day<br>But every day with you is special 💕`;
+        }
+        
+        // Create twinkling stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Create floating hearts
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('floatingHearts');
+            const heartEmojis = ['💖', '💕', '❤️'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 8000);
+            }, 300);
+        }
+        
+        // Create confetti rain
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confettiContainer');
+            const colors = ['#ff6b9d', '#feca57', '#c44569', '#ff9ff3', '#ffffff'];
+            
+            setInterval(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confettiContainer.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }, 100);
+        }
+        
+        // Create confetti explosion
+        function confettiExplosion() {
+            const confettiContainer = document.getElementById('confettiContainer');
+            const colors = ['#ff6b9d', '#feca57', '#c44569', '#ff9ff3', '#ffffff'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    confettiContainer.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 20);
+            }
+        }
+        
+        // Create wish cards
+        function createWishCards() {
+            const wishesGrid = document.getElementById('wishesGrid');
+            wishes.forEach((wish, index) => {
+                const card = document.createElement('div');
+                card.className = 'wish-card';
+                card.innerHTML = `
+                    <div class="wish-number">${wish.title}</div>
+                    <div class="wish-preview">${wish.preview}</div>
+                `;
+                card.addEventListener('click', () => openModal(wish));
+                wishesGrid.appendChild(card);
+            });
+        }
+        
+        // Modal functions
+        function openModal(wish) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            
+            modalTitle.textContent = wish.title;
+            modalMessage.textContent = wish.full;
+            modal.classList.add('active');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+        
+        // Mouse trail hearts
+        let lastTrailTime = 0;
+        document.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastTrailTime > 100) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-trail';
+                heart.textContent = '💕';
+                heart.style.left = e.pageX + 'px';
+                heart.style.top = e.pageY + 'px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 1000);
+                lastTrailTime = now;
+            }
+        });
+        
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            reveals.forEach(reveal => observer.observe(reveal));
+        }
+        
+        // Click interactions
+        document.getElementById('heroTitle').addEventListener('click', () => {
+            confettiExplosion();
+        });
+        
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+        
+        // Music Player with actual audio playback
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playButton = document.getElementById('playButton');
+        const equalizer = document.getElementById('equalizer');
+        let isPlaying = false;
+        
+        document.getElementById('playButton').addEventListener('click', () => {
+            if (!isPlaying) {
+                audioPlayer.play().then(() => {
+                    isPlaying = true;
+                    playButton.textContent = '⏸️ Pause Love Song';
+                    equalizer.style.opacity = '1';
+                }).catch((error) => {
+                    // If audio file not found, show message
+                    alert('🎶 Add your love song to the "audio" folder and name it "love-song.mp3" to play it here! 💕\n\nFor now, imagine your favorite romantic song playing... 💖');
+                });
+            } else {
+                audioPlayer.pause();
+                isPlaying = false;
+                playButton.textContent = '🎵 Play Love Song';
+                equalizer.style.opacity = '0.5';
+            }
+        });
+        
+        // Touch gestures for mobile (swipe through wishes)
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swipe left - could add carousel navigation here
+            }
+            if (touchEndX > touchStartX + 50) {
+                // Swipe right - could add carousel navigation here
+            }
+        }
+        
+        // Photo Modal Functions
+        function openPhotoModal(photoIndex) {
+            const photoModal = document.getElementById('photoModal');
+            const photoModalImage = document.getElementById('photoModalImage');
+            const photoModalTitle = document.getElementById('photoModalTitle');
+            const photoModalText = document.getElementById('photoModalText');
+            
+            photoModalImage.src = `images/photo${photoIndex + 1}.jpg`;
+            photoModalTitle.textContent = photoDescriptions[photoIndex].title;
+            photoModalText.textContent = photoDescriptions[photoIndex].text;
+            photoModal.classList.add('active');
+        }
+        
+        function closePhotoModal() {
+            const photoModal = document.getElementById('photoModal');
+            photoModal.classList.remove('active');
+        }
+        
+        // Add click handlers to all gallery photos
+        function initPhotoGallery() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => openPhotoModal(index));
+            });
+        }
+        
+        // Photo modal close handlers
+        document.getElementById('photoModalClose').addEventListener('click', closePhotoModal);
+        
+        document.getElementById('photoModal').addEventListener('click', (e) => {
+            if (e.target.id === 'photoModal') {
+                closePhotoModal();
+            }
+        });
+        
+        // Initialize everything
+        function init() {
+            updateCountdown();
+            createStars();
+            createFloatingHearts();
+            createConfetti();
+            createWishCards();
+            revealOnScroll();
+            initPhotoGallery();
+        }
+        
+        // Start when page loads
+        window.addEventListener('load', init);
+        
+        // Update countdown every hour
+        setInterval(updateCountdown, 3600000);
+    </script>
+</body>
+</html>
