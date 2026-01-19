@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Name 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Animated Gradient Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b9d, #ffc3d5, #ff9ff3, #feca57);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -3;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Falling Hearts */
+        .hearts-container {
+            position: fixed;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .falling-heart {
+            position: absolute;
+            font-size: 30px;
+            animation: fall 8s linear infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Falling Stars */
+        .stars-container {
+            position: fixed;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .falling-star {
+            position: absolute;
+            font-size: 25px;
+            animation: fall 10s linear infinite;
+            opacity: 0.9;
+        }
+        
+        /* Login Container */
+        .login-container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px 50px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            min-width: 400px;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .login-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+        
+        .login-subtitle {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .input-group {
+            margin-bottom: 30px;
+        }
+        
+        .input-label {
+            display: block;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .name-input {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 1.2rem;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #c44569;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+        
+        .name-input:focus {
+            border-color: #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            transform: scale(1.02);
+        }
+        
+        .name-input::placeholder {
+            color: rgba(196, 69, 105, 0.5);
+        }
+        
+        .login-button {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            padding: 18px 60px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(196, 69, 105, 0.4);
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        .login-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(196, 69, 105, 0.6);
+        }
+        
+        .login-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Error Message */
+        .error-message {
+            margin-top: 25px;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.5s ease;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .error-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .shake {
+            animation: shake 0.5s ease;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .login-container {
+                min-width: 90%;
+                padding: 40px 30px;
+            }
+            
+            .login-title {
+                font-size: 2rem;
+            }
+            
+            .login-subtitle {
+                font-size: 1rem;
+            }
+            
+            .name-input {
+                font-size: 1.1rem;
+                padding: 15px 20px;
+            }
+            
+            .login-button {
+                font-size: 1.1rem;
+                padding: 15px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    
+    <!-- Falling Hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Falling Stars -->
+    <div class="stars-container" id="starsContainer"></div>
+    
+    <!-- Login Container -->
+    <div class="login-container" id="loginContainer">
+        <h1 class="login-title">Enter Your Name 💖</h1>
+        <p class="login-subtitle">Who's the birthday girl? 🎂</p>
+        
+        <div class="input-group">
+            <label class="input-label">Your Name:</label>
+            <input 
+                type="text" 
+                class="name-input" 
+                id="nameInput" 
+                placeholder="Type your name here..."
+                autocomplete="off"
+            >
+        </div>
+        
+        <button class="login-button" id="loginButton">Login 💕</button>
+        
+        <div class="error-message" id="errorMessage">
+            You naughty! 😏 This is only for Kashish 💖
+        </div>
+    </div>
+
+    <script>
+        // Create falling hearts
+        function createFallingHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heartEmojis = ['💖', '💕', '❤️', '💗', '💓'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'falling-heart';
+                heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 8000);
+            }, 300);
+        }
+        
+        // Create falling stars
+        function createFallingStars() {
+            const starsContainer = document.getElementById('starsContainer');
+            const starEmojis = ['⭐', '✨', '🌟', '💫'];
+            
+            setInterval(() => {
+                const star = document.createElement('div');
+                star.className = 'falling-star';
+                star.textContent = starEmojis[Math.floor(Math.random() * starEmojis.length)];
+                star.style.left = Math.random() * 100 + '%';
+                star.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+                
+                setTimeout(() => star.remove(), 10000);
+            }, 500);
+        }
+        
+        // Login functionality
+        const nameInput = document.getElementById('nameInput');
+        const loginButton = document.getElementById('loginButton');
+        const errorMessage = document.getElementById('errorMessage');
+        const loginContainer = document.getElementById('loginContainer');
+        
+        // Handle login
+        function handleLogin() {
+            const name = nameInput.value.trim().toLowerCase();
+            
+            if (name === '') {
+                // Empty input
+                loginContainer.classList.add('shake');
+                setTimeout(() => loginContainer.classList.remove('shake'), 500);
+                return;
+            }
+            
+            if (name === 'kashish') {
+                // Correct name - redirect to birthday page
+                errorMessage.classList.remove('show');
+                loginContainer.style.transform = 'scale(0.8)';
+                loginContainer.style.opacity = '0';
+                
+                setTimeout(() => {
+                    window.location.href = 'birthday-love.html';
+                }, 500);
+            } else {
+                // Wrong name - show error
+                errorMessage.textContent = 'You naughty! 😏 This is only for my love 💖';
+                errorMessage.classList.add('show');
+                loginContainer.classList.add('shake');
+                nameInput.value = '';
+                
+                setTimeout(() => {
+                    loginContainer.classList.remove('shake');
+                }, 500);
+            }
+        }
+        
+        // Click login button
+        loginButton.addEventListener('click', handleLogin);
+        
+        // Press Enter key
+        nameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleLogin();
+            }
+        });
+        
+        // Hide error when typing
+        nameInput.addEventListener('input', () => {
+            if (errorMessage.classList.contains('show')) {
+                errorMessage.classList.remove('show');
+            }
+        });
+        
+        // Initialize animations
+        window.addEventListener('load', () => {
+            createFallingHearts();
+            createFallingStars();
+        });
+    </script>
+</body>
+</html>
